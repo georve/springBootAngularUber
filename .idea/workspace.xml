@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ae49080f-c614-423b-b6d0-abdcece5adf8" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/UterApplication/src/main/java/com/uter/UterApplication/repository/TripRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UterAngular/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/UterAngular/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UterApplication/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/UterApplication/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -79,7 +74,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="394" />
     <option name="y" value="132" />
     <option name="width" value="961" />
