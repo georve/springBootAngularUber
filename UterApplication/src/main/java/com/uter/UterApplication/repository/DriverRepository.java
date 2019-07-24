@@ -10,8 +10,8 @@ import java.util.List;
 
 public interface DriverRepository extends CrudRepository<Driver,Long> {
 
-    @Query(value="Select b from Driver b where b.license =: license and " +
-            "b.id NOT IN (SELECT t.driver from Trip t where t.dateTrip =:tripDate))")
+    @Query(value="Select b from Driver b where b.license =:license and " +
+            "b.id NOT IN (SELECT t.driver from Trip t where t.dateTrip =:tripDate)")
     List<Driver> findDriverAvailableByDateAndLicense(@Param("license") String license, @Param("tripDate") Date date);
 
 }

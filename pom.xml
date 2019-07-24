@@ -17,8 +17,8 @@
         <relativePath />
     </parent>
     <modules>
-        <module>UterApplication</module>
         <module>UterAngular</module>
+        <module>UterApplication</module>
     </modules>
 
 
