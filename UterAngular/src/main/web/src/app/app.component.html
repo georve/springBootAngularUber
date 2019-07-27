@@ -1,21 +1,58 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <ng2-slim-loading-bar color="blue"></ng2-slim-loading-bar>
-<nav class="navbar navbar-expand-sm bg-light">
-  <div class="container-fluid">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a routerLink="drivers/create" class="nav-link" routerLinkActive="active">
-          Create a Driver
+<!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark primary-color">
+
+  <!-- Navbar brand -->
+  <a class="navbar-brand" href="#">Uter</a>
+
+  <!-- Collapse button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+    aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Collapsible content -->
+  <div class="collapse navbar-collapse" id="basicExampleNav">
+
+    <!-- Links -->
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home
+          <span class="sr-only">(current)</span>
         </a>
       </li>
-      <li class="nav-item">
-        <a routerLink="drivers" class="nav-link" routerLinkActive="active">
-          Drivers
-        </a>
-      </li> 
+      <!-- Dropdown -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">Driver</a>
+        <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+          <a routerLink="drivers" class="nav-link" routerLinkActive="active">List Drivers</a>
+          <a routerLink="drivers/create" class="nav-link" routerLinkActive="active">Add Driver</a>
+        </div>
+      </li>
+
+      <!-- Dropdown -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">Vehicle</a>
+        <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+            <a routerLink="vehicles" class="nav-link" routerLinkActive="active">List Vehicles</a>
+            <a routerLink="vehicles/create" class="nav-link" routerLinkActive="active">Add Vehicle</a>
+        </div>
+      </li>
+
     </ul>
+    <!-- Links -->
+
+
   </div>
+  <!-- Collapsible content -->
+
 </nav>
+<!--/.Navbar-->
+
+
 
 <div class="container">
 
