@@ -1,1 +1,45 @@
-<p>edit-driver works!</p>
+<div class="card">
+    <div class="card-body">
+        <form (ngSubmit)="onSubmit()" [formGroup]="angForm" novalidate>
+        <div class="form-group">
+          <label class="col-md-4">Driver Name</label>
+          <input type="text" [(ngModel)]="driver.name" class="form-control" formControlName="DriverName" #DriverName />
+        </div>
+        <div *ngIf="angForm.controls['DriverName'].invalid && (angForm.controls['DriverName'].dirty || angForm.controls['DriverName'].touched)" class="alert alert-danger">
+            <div *ngIf="angForm.controls['DriverName'].errors.required">
+              Driver Name is required.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4">Driver LastName</label>
+            <input type="text" [(ngModel)]="driver.lastName" class="form-control" formControlName="DriverLastName" #DriverLastName />
+        </div>
+
+        <div *ngIf="angForm.controls['DriverLastName'].invalid && (angForm.controls['DriverLastName'].dirty || angForm.controls['DriverLastName'].touched)" class="alert alert-danger">
+            <div *ngIf="angForm.controls['DriverLastName'].errors.required">
+              Driver LastName is required.
+            </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4">Driver License</label>
+          <select class="form-control" [(ngModel)]="driver.license" formControlName="DriverLicense" #DriverLicense>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+            <option>D</option>
+            <option>E</option>
+          </select>
+        </div>
+        <div *ngIf="angForm.controls['DriverLicense'].invalid && (angForm.controls['DriverLicense'].dirty || angForm.controls['DriverLicense'].touched)" class="alert alert-danger">
+            <div *ngIf="angForm.controls['DriverLicense'].errors.required">
+              Driver License is required.
+            </div>
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Update Driver</button>
+        </div>
+      </form>
+    </div>
+  </div>
