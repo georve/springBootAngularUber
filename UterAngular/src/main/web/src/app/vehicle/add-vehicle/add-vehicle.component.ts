@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+
+import {Vehicle} from "../../vehicle";
+import {VehiclesService} from "../../vehicles.service";
 
 @Component({
   selector: 'app-add-vehicle',
@@ -7,9 +12,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddVehicleComponent implements OnInit {
 
-  constructor() { }
+  angForm: FormGroup;
+  vehicle:Vehicle;
+  
+  constructor(private route: ActivatedRoute, private router: Router,private fb: FormBuilder,private ps:VehiclesService) {
+    this.vehicle=new Vehicle();
+    this.createForm();
+  }
+
+  createForm() {
+    this.angForm = this.fb.group({
+      VehicleBrand: ['', Validators.required ],
+      VehicleModel: ['', Validators.required ],
+      VehiclePlate: ['',Validators.required],
+      VehicleLicense: ['', Validators.required ]
+    });
+  }
 
   ngOnInit() {
+
+  }
+
+  onSubmit(){
+    this.ps.save(this.vehicle).subscribe(data => console.log(data), error => console.log(error));
+    this.vehicle=new Vehicle();
+    this.gotoList();
+  }
+
+  gotoList(){
+    this.router.navigate(['/vehicle']);
   }
 
 }

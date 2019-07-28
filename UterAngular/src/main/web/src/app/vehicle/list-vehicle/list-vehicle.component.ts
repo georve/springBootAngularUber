@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from "rxjs";
+import { Vehicle } from "./../../vehicle";
+import { VehiclesService} from "./../../vehicles.service";
+
 
 @Component({
   selector: 'app-list-vehicle',
@@ -7,9 +11,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListVehicleComponent implements OnInit {
 
-  constructor() { }
+  vehicles:Observable<Vehicle[]>;
+
+  constructor(private vehiclesService:VehiclesService) { }
 
   ngOnInit() {
+    this.reloadData();
+  }
+
+  reloadData(){
+    this.vehicles=this.vehiclesService.findAll();
+  }
+
+  deleteVehicle(id: number) {
+    this.vehiclesService.delete(id)
+      .subscribe(
+        data => {
+          console.log(data);
+          this.reloadData();
+        },
+        error => console.log(error));
   }
 
 }
