@@ -27,7 +27,7 @@
                                     <td>{{ vehicle.brand }}</td>
                                     <td>{{ vehicle.model }}</td>
                                     <td>{{ vehicle.plate }}</td>
-                                    <td><button (click)="findDriverAvailable(vehicle)" class="btn btn-danger">Select</button></td>
+                                    <td><button (click)="findDriverAvailable(vehicle)" awNextStep class="btn btn-danger">Select</button></td>
                                 </tr>
                             </tbody>
                           </table>                             
@@ -35,10 +35,11 @@
         </div>
         
         <button type="button" awPreviousStep>Go to previous step</button>
-        <button type="button" awNextStep>Go to next step</button>
+       <!-- <button type="button" awNextStep>Go to next step</button>-->
         </aw-wizard-step>
-        <aw-wizard-step stepTitle="Select a Driver available" (stepEnter)="findDriverAvailable(vehicle)">
+        <aw-wizard-step stepTitle="Select a Driver available" >
         <div class="card">
+           <div class="card-body">
                 <table class="table table-striped table-hover">
                         <thead class="thead-dark">
                             <tr>
@@ -54,20 +55,52 @@
                                 <td>{{ driver.name }}</td>
                                 <td>{{ driver.lastName }}</td>
                                 <td>{{ driver.license }}</td>
-                                <td><button (click)="selectDriver(driver.id)" class="btn btn-danger">Select</button></td>
+                                <td><button (click)="bookYourTrip(driver)" awNextStep class="btn btn-danger">Select</button></td>
                             </tr>
                         </tbody>
                     </table>
-        <div class="card-body">
-
         </div>
         </div>
         
         <button type="button" awPreviousStep>Previous Step</button>
-        <button type="button" awNextStep>Go to next step</button>
         </aw-wizard-step>
         <aw-wizard-step stepTitle="Book your Trip">
-                Content of Step 4
+        <div class="card">
+            <div class="card-body">
+                    <!--<div class="form-group">
+                            <label class="col-md-4">Driver Name</label>
+                            <input type="text" name="driverName"  [(ngModel)]="trip.driver.name" class="form-control"  disabled/>
+                    </div>
+
+        
+                    <div class="form-group">
+                              <label class="col-md-4">Driver LastName</label>
+                              <input type="text"  name="driverLastName" [(ngModel)]="trip.driver.lastName" class="form-control" disabled/>
+                    </div>
+
+                    <div class="form-group">
+                            <label class="col-md-4">Vehicle Brand</label>
+                            <input type="text"  name="driverLastName2" [(ngModel)]="trip.vehicle.brand" class="form-control"  disabled/>
+                    </div>
+
+                  
+                    <div class="form-group">
+                              <label class="col-md-4">Vehicle Model</label>
+                              <input type="text" name="driverLastName3" [(ngModel)]="trip.vehicle.model" class="form-control"  disabled/>
+                    </div>
+                  
+                    <div class="form-group">
+                              <label class="col-md-4">Vehicle Plate</label>
+                              <input type="text" name="driverLastName4" [(ngModel)]="trip.vehicle.plate" class="form-control"  disabled/>
+                    </div>
+
+                    <div class="form-group">
+                            <label class="col-md-4">Vehicle Plate</label>
+                            <input type="text" name="driverLastName3" [(ngModel)]="trip.vehicle.plate" class="form-control"  disabled/>
+                  </div>-->
+                  
+            </div>
+        </div>
         <button type="button" awPreviousStep>Previous Step</button>
         <button type="button" (click)="finishFunction()">Finish</button>
         </aw-wizard-step>

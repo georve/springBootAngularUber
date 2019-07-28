@@ -11,7 +11,7 @@ export class TripsService {
   private url:string;
 
   constructor(private http:HttpClient) { 
-    this.url='http://localhost:8080/rest/trip';
+    this.url='http://localhost:8080/rest/tripManagement';
   }
 
 

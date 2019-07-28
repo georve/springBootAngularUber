@@ -4,6 +4,6 @@ import {Vehicle} from "./vehicle";
 export class Trip {
     id:number;
     dateTrip:string;
-    vehicle:Driver;
-    driver:Vehicle;
+    vehicle:Vehicle;
+    driver:Driver;
 }

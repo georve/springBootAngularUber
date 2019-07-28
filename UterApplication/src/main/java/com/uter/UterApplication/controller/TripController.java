@@ -49,7 +49,7 @@ public class TripController {
 
 
         Trip saved= repository.save(trip);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok(saved);
     }
 
 

@@ -23,10 +23,13 @@ export class AddTripComponent implements OnInit {
   trip:Trip;
   vehicles:Observable<Vehicle[]>;
   drivers:Observable<Driver[]>;
+  vehicleSelected:Vehicle;
+  driverSelected:Driver;
   constructor(private route: ActivatedRoute, private router: Router,private psd:DriversService,private psv:VehiclesService
     ,private pst:TripsService) {
       this.trip=new Trip();
-
+      this.vehicleSelected=new Vehicle();
+      this.driverSelected=new Driver();
      }
 
   ngOnInit() {
@@ -40,8 +43,24 @@ export class AddTripComponent implements OnInit {
   }
 
   findDriverAvailable(vehicleFound:Vehicle){
+      this.vehicleSelected=vehicleFound;
       var dateDriver=moment(this.trip.dateTrip).format('YYYY-MM-DD');
       this.drivers=this.psd.findDriverAvailablesByDateAndLicense(dateDriver,vehicleFound.licenseRequired);
+  }
+
+  bookYourTrip(driverFound:Driver){
+    this.driverSelected=driverFound;
+    this.trip.driver=this.driverSelected;
+    this.trip.vehicle=this.vehicleSelected;
+    this.trip.dateTrip=moment(this.trip.dateTrip).format('YYYY-MM-DD');
+
+    this.pst.save(this.trip).subscribe((data) =>{
+        this.trip=data;
+    },(error)=>{
+        console.log(error);
+    });
+
+
   }
 
   finishFunction(){
