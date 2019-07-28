@@ -15,9 +15,15 @@ import { ListVehicleComponent } from './vehicle/list-vehicle/list-vehicle.compon
 import { AddVehicleComponent } from './vehicle/add-vehicle/add-vehicle.component';
 import { EditVehicleComponent } from './vehicle/edit-vehicle/edit-vehicle.component';
 
+//component Trip
+import { AddTripComponent } from './trip/add-trip/add-trip.component';
+import { ListTripComponent } from './trip/list-trip/list-trip.component';
+
 // services
 import { DriversService } from './drivers.service';
 import { VehiclesService }  from './vehicles.service';
+import { TripsService}      from './trips.service';
+
 
 
 @NgModule({
@@ -28,7 +34,9 @@ import { VehiclesService }  from './vehicles.service';
     EditDriverComponent,
     ListVehicleComponent,
     AddVehicleComponent,
-    EditVehicleComponent
+    EditVehicleComponent,
+    AddTripComponent,
+    ListTripComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +47,8 @@ import { VehiclesService }  from './vehicles.service';
   ],
   providers: [
     DriversService,
-    VehiclesService
+    VehiclesService,
+    TripsService
   ],
   bootstrap: [AppComponent]
 })

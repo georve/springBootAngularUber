@@ -34,9 +34,11 @@ export class AddVehicleComponent implements OnInit {
   }
 
   onSubmit(){
-    this.ps.save(this.vehicle).subscribe(data => console.log(data), error => console.log(error));
-    this.vehicle=new Vehicle();
-    this.gotoList();
+    this.ps.save(this.vehicle).subscribe(data =>{
+      this.vehicle=new Vehicle();
+      this.gotoList();
+    });
+    
   }
 
   gotoList(){
