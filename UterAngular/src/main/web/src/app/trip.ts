@@ -3,7 +3,7 @@ import {Vehicle} from "./vehicle";
 
 export class Trip {
     id:number;
-    dateTrio:string;
+    dateTrip:string;
     vehicle:Driver;
     driver:Vehicle;
 }
