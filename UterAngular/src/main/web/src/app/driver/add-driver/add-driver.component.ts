@@ -28,9 +28,12 @@ export class AddDriverComponent implements OnInit {
   }
 
   onSubmit(){
-    this.ps.save(this.driver).subscribe(data => console.log(data), error => console.log(error));
-    this.driver=new Driver();
-    this.gotoDriverList();
+    this.ps.save(this.driver).subscribe(data =>{
+      this.driver=new Driver();
+      this.gotoDriverList();
+    });
+  
+   
   }
 
   gotoDriverList(){

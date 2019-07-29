@@ -38,9 +38,11 @@ export class EditDriverComponent implements OnInit {
 
 
   onSubmit(){
-    this.ps.update(this.driver.id,this.driver).subscribe(data => console.log(data), error => console.log(error));
-    this.driver=new Driver();
-    this.gotoDriverList();
+    this.ps.update(this.driver.id,this.driver).subscribe(data =>{
+      this.driver=new Driver();
+      this.gotoDriverList();
+    });
+    
   }
 
   gotoDriverList(){

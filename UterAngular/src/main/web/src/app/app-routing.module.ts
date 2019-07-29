@@ -6,6 +6,7 @@ import { ListDriverComponent} from './driver/list-driver/list-driver.component';
 import { ListVehicleComponent } from './vehicle/list-vehicle/list-vehicle.component';
 import { AddVehicleComponent } from './vehicle/add-vehicle/add-vehicle.component';
 import { EditVehicleComponent } from './vehicle/edit-vehicle/edit-vehicle.component';
+import { AddTripComponent } from './trip/add-trip/add-trip.component';
 
 
 
@@ -15,7 +16,8 @@ const routes: Routes = [
 { path:'drivers', component:ListDriverComponent},
 { path:'vehicle/create',component:AddVehicleComponent},
 { path:'editVehicle/:id',component:EditVehicleComponent},
-{ path:'vehicle', component:ListVehicleComponent}
+{ path:'vehicle', component:ListVehicleComponent},
+{ path:'trip', component:AddTripComponent},
 ];
 
 @NgModule({

@@ -23,6 +23,7 @@ export class ListDriverComponent implements OnInit {
   }
 
   deleteDriver(id: number) {
+    if(window.confirm('Are you sure?')) {
     this.driverService.delete(id)
       .subscribe(
         data => {
@@ -30,6 +31,7 @@ export class ListDriverComponent implements OnInit {
           this.reloadData();
         },
         error => console.log(error));
+      }
   }
 
 }

@@ -13,9 +13,12 @@ export class ListVehicleComponent implements OnInit {
 
   vehicles:Observable<Vehicle[]>;
 
-  constructor(private vehiclesService:VehiclesService) { }
+  constructor(private vehiclesService:VehiclesService) {
+    console.log('constructor');
+   }
 
   ngOnInit() {
+    console.log('ngOnInit');
     this.reloadData();
   }
 
@@ -24,6 +27,7 @@ export class ListVehicleComponent implements OnInit {
   }
 
   deleteVehicle(id: number) {
+    if(window.confirm('Are you sure?')) {
     this.vehiclesService.delete(id)
       .subscribe(
         data => {
@@ -31,6 +35,7 @@ export class ListVehicleComponent implements OnInit {
           this.reloadData();
         },
         error => console.log(error));
+      }
   }
 
 }
