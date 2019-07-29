@@ -67,37 +67,19 @@
         <aw-wizard-step stepTitle="Book your Trip">
         <div class="card">
             <div class="card-body">
-                    <!--<div class="form-group">
-                            <label class="col-md-4">Driver Name</label>
-                            <input type="text" name="driverName"  [(ngModel)]="trip.driver.name" class="form-control"  disabled/>
-                    </div>
-
-        
-                    <div class="form-group">
-                              <label class="col-md-4">Driver LastName</label>
-                              <input type="text"  name="driverLastName" [(ngModel)]="trip.driver.lastName" class="form-control" disabled/>
-                    </div>
-
-                    <div class="form-group">
-                            <label class="col-md-4">Vehicle Brand</label>
-                            <input type="text"  name="driverLastName2" [(ngModel)]="trip.vehicle.brand" class="form-control"  disabled/>
-                    </div>
-
-                  
-                    <div class="form-group">
-                              <label class="col-md-4">Vehicle Model</label>
-                              <input type="text" name="driverLastName3" [(ngModel)]="trip.vehicle.model" class="form-control"  disabled/>
-                    </div>
-                  
-                    <div class="form-group">
-                              <label class="col-md-4">Vehicle Plate</label>
-                              <input type="text" name="driverLastName4" [(ngModel)]="trip.vehicle.plate" class="form-control"  disabled/>
-                    </div>
-
-                    <div class="form-group">
-                            <label class="col-md-4">Vehicle Plate</label>
-                            <input type="text" name="driverLastName3" [(ngModel)]="trip.vehicle.plate" class="form-control"  disabled/>
-                  </div>-->
+                <h2>Detail about your trip </h2>
+                <ul>
+                  <li>
+                    <h2>Driver:{{this.trip.driver.name}}  {{this.trip.driver.lastName}}</h2>
+                  </li>
+                  <li>
+                    <h2>Vehicle:{{this.trip.vehicle.brand}} {{this.trip.vehicle.model}} {{this.trip.vehicle.plate}}</h2>
+                  </li>
+                  <li>
+                    <h2>Trip date:{{this.trip.dateTrip}}</h2>
+                  </li>
+                </ul>
+                
                   
             </div>
         </div>
