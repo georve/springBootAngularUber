@@ -64,7 +64,7 @@ export class AddTripComponent implements OnInit {
   }
 
   finishFunction(){
-
+    this.router.navigate(['/vehicle']);
   }
 
 }
