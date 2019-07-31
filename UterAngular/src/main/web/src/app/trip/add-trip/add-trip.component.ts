@@ -25,6 +25,7 @@ export class AddTripComponent implements OnInit {
   drivers:Observable<Driver[]>;
   vehicleSelected:Vehicle;
   driverSelected:Driver;
+  success:boolean;
   constructor(private route: ActivatedRoute, private router: Router,private psd:DriversService,private psv:VehiclesService
     ,private pst:TripsService) {
       this.trip=new Trip();
@@ -55,8 +56,10 @@ export class AddTripComponent implements OnInit {
     this.trip.dateTrip=moment(this.trip.dateTrip).format('YYYY-MM-DD');
 
     this.pst.save(this.trip).subscribe((data) =>{
+        this.success=true;
         this.trip=data;
     },(error)=>{
+        this.success=false;
         console.log(error);
     });
 

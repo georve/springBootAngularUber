@@ -28,6 +28,9 @@ export class AddDriverComponent implements OnInit {
   }
 
   onSubmit(){
+    if(this.angForm.invalid){
+      return;
+    }
     this.ps.save(this.driver).subscribe(data =>{
       this.driver=new Driver();
       this.gotoDriverList();

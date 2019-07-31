@@ -9,6 +9,9 @@
                 <td colspan="2">Actions</td>
             </tr>
         </thead>
+        <tbody *ngIf="drivers.length == 0">
+            <td colspan="5" class="text-center">There aren't drivers registered</td>
+        </tbody>
 
         <tbody>
             <tr *ngFor="let driver of drivers | async">

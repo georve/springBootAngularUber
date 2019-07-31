@@ -34,6 +34,10 @@ export class AddVehicleComponent implements OnInit {
   }
 
   onSubmit(){
+    if(this.angForm.invalid){
+      return;
+    }
+    
     this.ps.save(this.vehicle).subscribe(data =>{
       this.vehicle=new Vehicle();
       this.gotoList();

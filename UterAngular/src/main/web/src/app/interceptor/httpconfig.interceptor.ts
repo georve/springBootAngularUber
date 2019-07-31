@@ -31,9 +31,9 @@ intercept(
                 if(err instanceof HttpErrorResponse) {
                     try {
                         
-                            let reason= err && err.error.reason ? err.error.reason : '';
+                            let reason= err && err.error ? err.error : 'Undefined';
                             let status=err.status;
-                            let title= err.error.title?err.error.title:'Error';
+                            let title= err.error.message?err.error.message:'Error';
                     
                         this.toasterService.error(reason, title, { positionClass: 'toast-bottom-center' });
                     } catch(e) {

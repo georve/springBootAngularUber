@@ -8,6 +8,10 @@
         <td colspan="2">Actions</td>
     </tr>
     </thead>
+
+    <tbody *ngIf="vehicles.length==0">
+            <td colspan="6" class="text-center">There aren't Vehicles registered</td>
+    </tbody>
   
     <tbody>
         <tr *ngFor="let vehicle of vehicles | async">

@@ -21,6 +21,10 @@
                                 <td colspan="2">Actions</td>
                             </tr>
                             </thead>
+
+                            <!--<tbody *ngIf="vehicles.length==0">
+                                    <td colspan="5" class="text-center">There aren't Vehicles available to book the trip</td>
+                            </tbody>-->
                           
                             <tbody>
                                 <tr *ngFor="let vehicle of vehicles | async">
@@ -35,7 +39,6 @@
         </div>
         
         <button type="button" awPreviousStep>Go to previous step</button>
-       <!-- <button type="button" awNextStep>Go to next step</button>-->
         </aw-wizard-step>
         <aw-wizard-step stepTitle="Select a Driver available" >
         <div class="card">
@@ -49,6 +52,10 @@
                                 <td colspan="2">Actions</td>
                             </tr>
                         </thead>
+
+                        <!--<tbody *ngIf="drivers.length==0">
+                                <td colspan="5" class="text-center">There aren't drivers available to book the trip</td>
+                        </tbody>-->
                 
                         <tbody>
                             <tr *ngFor="let driver of drivers | async">
@@ -64,9 +71,9 @@
         
         <button type="button" awPreviousStep>Previous Step</button>
         </aw-wizard-step>
-        <aw-wizard-step stepTitle="Book your Trip">
+        <aw-wizard-step stepTitle="Book your Trip" >
         <div class="card">
-            <div class="card-body">
+            <div class="card-body" *ngIf=(success)>
                 <h2>Detail about your trip </h2>
                 <ul>
                   <li>
@@ -78,9 +85,11 @@
                   <li>
                     <h2>Trip date:{{this.trip.dateTrip}}</h2>
                   </li>
-                </ul>
-                
-                  
+                </ul> 
+            </div>
+            <div class="card-body" *ngIf=(!success)>
+                    <h2>There was a problem booking your trip </h2>
+                   
             </div>
         </div>
         <button type="button" awPreviousStep>Previous Step</button>
