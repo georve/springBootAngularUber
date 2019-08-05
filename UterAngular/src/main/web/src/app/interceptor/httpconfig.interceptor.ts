@@ -35,9 +35,9 @@ intercept(
                             let status=err.status;
                             let title= err.error.message?err.error.message:'Error';
                     
-                        this.toasterService.error(reason, title, { positionClass: 'toast-bottom-center' });
+                        this.toasterService.error(reason, title, { positionClass: 'toast-top-right' });
                     } catch(e) {
-                        this.toasterService.error('An error occurred', '', { positionClass: 'toast-bottom-center' });
+                        this.toasterService.error('An error occurred', '', { positionClass: 'toast-top-right' });
                     }
                     //log error 
                 }

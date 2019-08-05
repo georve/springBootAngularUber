@@ -18,6 +18,7 @@ const routes: Routes = [
 { path:'editVehicle/:id',component:EditVehicleComponent},
 { path:'vehicle', component:ListVehicleComponent},
 { path:'trip', component:AddTripComponent},
+{ path:'', component:ListVehicleComponent},
 ];
 
 @NgModule({
