@@ -22,11 +22,8 @@
                             </tr>
                             </thead>
 
-                            <!--<tbody *ngIf="vehicles.length==0">
-                                    <td colspan="5" class="text-center">There aren't Vehicles available to book the trip</td>
-                            </tbody>-->
-                          
-                            <tbody>
+               
+                            <tbody *ngIf= "vehicles | async; else empty">
                                 <tr *ngFor="let vehicle of vehicles | async">
                                     <td>{{ vehicle.brand }}</td>
                                     <td>{{ vehicle.model }}</td>
@@ -34,6 +31,11 @@
                                     <td><button (click)="findDriverAvailable(vehicle)" awNextStep class="btn btn-danger">Select</button></td>
                                 </tr>
                             </tbody>
+                            <ng-template #empty>
+                                    <tbody>
+                                            <td colspan="5" class="text-center">There aren't Vehicles available to book the trip, select another day</td>
+                                    </tbody>
+                            </ng-template>
                           </table>                             
             </div>
         </div>
@@ -52,12 +54,8 @@
                                 <td colspan="2">Actions</td>
                             </tr>
                         </thead>
-
-                        <!--<tbody *ngIf="drivers.length==0">
-                                <td colspan="5" class="text-center">There aren't drivers available to book the trip</td>
-                        </tbody>-->
-                
-                        <tbody>
+             
+                        <tbody *ngIf= "drivers | async; else emptyDriver">
                             <tr *ngFor="let driver of drivers | async">
                                 <td>{{ driver.name }}</td>
                                 <td>{{ driver.lastName }}</td>
@@ -65,6 +63,11 @@
                                 <td><button (click)="bookYourTrip(driver)" awNextStep class="btn btn-danger">Select</button></td>
                             </tr>
                         </tbody>
+                        <ng-template #emptyDriver>
+                                <tbody>
+                                   <td colspan="5" class="text-center">There aren't drivers available to book the trip,select another day</td>
+                                </tbody>
+                        </ng-template>
                     </table>
         </div>
         </div>
