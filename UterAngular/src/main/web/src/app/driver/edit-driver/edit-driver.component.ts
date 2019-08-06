@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { Driver} from '../../driver';
 import { DriversService } from '../../drivers.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-edit-driver',
@@ -16,7 +17,8 @@ export class EditDriverComponent implements OnInit {
   driver:any={};
 
 
-  constructor(private route: ActivatedRoute, private router: Router,private fb: FormBuilder,private ps:DriversService) {
+  constructor(private route: ActivatedRoute, private router: Router,private fb: FormBuilder,private ps:DriversService,
+    private toasterService: ToastrService) {
     this.createForm();
   }
 
@@ -39,6 +41,7 @@ export class EditDriverComponent implements OnInit {
 
   onSubmit(){
     this.ps.update(this.driver.id,this.driver).subscribe(data =>{
+      this.toasterService.success('Driver updated successfully','Success', { positionClass: 'toast-top-right' });
       this.driver=new Driver();
       this.gotoDriverList();
     });

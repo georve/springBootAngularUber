@@ -31,11 +31,11 @@ intercept(
                 if(err instanceof HttpErrorResponse) {
                     try {
                         
-                            let reason= err && err.error ? err.error : 'Undefined';
+                            let reason= err && err.name ? err.name : 'Undefined';
                             let status=err.status;
-                            let title= err.error.message?err.error.message:'Error';
+                            let title= err.message?err.message:'Error';
                     
-                        this.toasterService.error(reason, title, { positionClass: 'toast-top-right' });
+                        this.toasterService.error(title,reason, { positionClass: 'toast-top-right' });
                     } catch(e) {
                         this.toasterService.error('An error occurred', '', { positionClass: 'toast-top-right' });
                     }

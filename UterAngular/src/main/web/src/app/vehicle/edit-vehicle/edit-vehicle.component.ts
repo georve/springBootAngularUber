@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import {Vehicle} from "../../vehicle";
 import {VehiclesService} from "../../vehicles.service";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-edit-vehicle',
@@ -15,7 +16,8 @@ export class EditVehicleComponent implements OnInit {
   angForm: FormGroup;
   vehicle:any={};
 
-  constructor(private route: ActivatedRoute, private router: Router,private fb: FormBuilder,private ps:VehiclesService) {
+  constructor(private route: ActivatedRoute, private router: Router,private fb: FormBuilder,private ps:VehiclesService,
+    private toasterService: ToastrService) {
     this.createForm();
   }
 
@@ -39,6 +41,7 @@ export class EditVehicleComponent implements OnInit {
 
   onSubmit(){
     this.ps.update(this.vehicle.id,this.vehicle).subscribe(data =>{
+      this.toasterService.success('Vehicle updated successfully','Success', { positionClass: 'toast-top-right' });
       this.vehicle=new Vehicle();
       this.gotoList();
     });
