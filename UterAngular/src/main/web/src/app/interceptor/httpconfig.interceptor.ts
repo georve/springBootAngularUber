@@ -41,7 +41,17 @@ intercept(
                               reason= err && err.name ? err.name : 'Undefined';
                             
                               title= err.message?err.message:'Error';
+                            }else if(status==500){
+                               reason= err && err.error.error ? err.error.error : 'Undefined';
+                               title=err.message?err.message:'Error';
+                            }else{
+                                reason= err && err.name ? err.name : 'Undefined';
+                            
+                                title= err.message?err.message:'Error';
+
                             }
+
+                            
                     
                         this.toasterService.error(title,reason, { positionClass: 'toast-top-right' });
                     } catch(e) {
