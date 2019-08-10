@@ -59,6 +59,12 @@
                 </executions>
             </plugin>
         </plugins>
+        <resources>
+        <resource>
+        <directory>target/client</directory>
+        <targetPath>static</targetPath>
+      </resource>
+    </resources>
     </build>
 
 

@@ -12,6 +12,7 @@ public class Trip {
     private Long id;
 
     @Column(name="date_trip")
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MMM-dd", timezone="UTC")
     @Temporal(TemporalType.DATE)
     private Date dateTrip;
 

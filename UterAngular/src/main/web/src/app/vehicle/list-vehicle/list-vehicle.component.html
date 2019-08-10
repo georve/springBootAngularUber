@@ -9,10 +9,6 @@
     </tr>
     </thead>
 
-    <tbody *ngIf="vehicles.length==0">
-            <td colspan="6" class="text-center">There aren't Vehicles registered</td>
-    </tbody>
-  
     <tbody *ngIf= "vehicles | async; else empty">
         <tr *ngFor="let vehicle of vehicles | async">
             <td>{{ vehicle.brand }}</td>
