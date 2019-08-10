@@ -2,6 +2,8 @@ package com.uter.UterApplication.domain;
 
 import javax.persistence.*;
 import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 
 @Entity
 public class Trip {
