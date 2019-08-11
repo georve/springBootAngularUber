@@ -4,7 +4,13 @@ El proyecto consta de dos parte el FrontEnd: Angular8 y el Backend Spring Boot:
 Por la naturaleza del proyecto es necesario compilar todo los modulos para hacer una integracion de ambos proyectos
 1. El proyecto se enlaza con una base de datos Mysql 5.7 y este debe tener creada la base de datos uterjpa a la cual
 se conecta.
-2. Para la compilacion del proyecto se hace por medio mvn clean install para correr todas la dependencias.
+   pasos para crear la cuenta:
+   A) conectarse como root
+      mysql -u root -p
+   B) crear la base de datos vacia:
+      CREATE DATABASE uterjpa;
+2. Para la compilacion del proyecto se hace por medio mvn clean install para correr todas la dependencias.(se debe haber
+   creado la base de datos previamente para correr los script de flyway).
 3. Para correr el Front se debe colocar en la raiz de angular cd /springBootAngularUber/UterAngular/src/main/web/
     y ejecutar ng serve -o para correr el front.
     
