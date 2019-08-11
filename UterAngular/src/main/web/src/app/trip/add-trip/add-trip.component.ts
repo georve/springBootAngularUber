@@ -36,6 +36,7 @@ export class AddTripComponent implements OnInit {
   ngOnInit() {
   }
 
+
   findVehicleAvailable(){
       console.log(this.trip.dateTrip);
       var date=moment(this.trip.dateTrip).format('YYYY-MM-DD');
@@ -58,6 +59,7 @@ export class AddTripComponent implements OnInit {
     this.pst.save(this.trip).subscribe((data) =>{
         this.success=true;
         this.trip=data;
+        this.trip.dateTrip=moment(this.trip.dateTrip).format('YYYY-MM-DD');
     },(error)=>{
         this.success=false;
         console.log(error);

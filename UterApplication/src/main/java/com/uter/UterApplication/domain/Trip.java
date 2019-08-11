@@ -2,6 +2,8 @@ package com.uter.UterApplication.domain;
 
 import javax.persistence.*;
 import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 
 @Entity
 public class Trip {
@@ -12,6 +14,7 @@ public class Trip {
     private Long id;
 
     @Column(name="date_trip")
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MMM-dd", timezone="UTC")
     @Temporal(TemporalType.DATE)
     private Date dateTrip;
 

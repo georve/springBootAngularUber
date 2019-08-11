@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { Driver} from '../../driver';
 import { DriversService } from '../../drivers.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-driver',
@@ -14,7 +15,8 @@ export class AddDriverComponent implements OnInit {
 
   angForm: FormGroup;
   driver: Driver;
-  constructor(private route: ActivatedRoute, private router: Router,private fb: FormBuilder,private ps:DriversService) {
+  constructor(private route: ActivatedRoute, private router: Router,private fb: FormBuilder,private ps:DriversService,
+    private toasterService: ToastrService) {
     this.driver=new Driver();
     this.createForm();
   }
@@ -32,6 +34,7 @@ export class AddDriverComponent implements OnInit {
       return;
     }
     this.ps.save(this.driver).subscribe(data =>{
+      this.toasterService.success('Driver saved successfully','Success', { positionClass: 'toast-top-right' });
       this.driver=new Driver();
       this.gotoDriverList();
     });

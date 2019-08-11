@@ -31,13 +31,31 @@ intercept(
                 if(err instanceof HttpErrorResponse) {
                     try {
                         
-                            let reason= err && err.error ? err.error : 'Undefined';
                             let status=err.status;
-                            let title= err.error.message?err.error.message:'Error';
+                            let title='';
+                            let reason='';
+                            if(status==400){
+                                title= err && err.error ? err.error : 'Undefined';
+                                reason= err.name?err.name:'Error';
+                            }else if(status==0){
+                              reason= err && err.name ? err.name : 'Undefined';
+                            
+                              title= err.message?err.message:'Error';
+                            }else if(status==500){
+                               reason= err && err.error.error ? err.error.error : 'Undefined';
+                               title=err.message?err.message:'Error';
+                            }else{
+                                reason= err && err.name ? err.name : 'Undefined';
+                            
+                                title= err.message?err.message:'Error';
+
+                            }
+
+                            
                     
-                        this.toasterService.error(reason, title, { positionClass: 'toast-bottom-center' });
+                        this.toasterService.error(title,reason, { positionClass: 'toast-top-right' });
                     } catch(e) {
-                        this.toasterService.error('An error occurred', '', { positionClass: 'toast-bottom-center' });
+                        this.toasterService.error('An error occurred', '', { positionClass: 'toast-top-right' });
                     }
                     //log error 
                 }

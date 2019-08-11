@@ -9,11 +9,7 @@
     </tr>
     </thead>
 
-    <tbody *ngIf="vehicles.length==0">
-            <td colspan="6" class="text-center">There aren't Vehicles registered</td>
-    </tbody>
-  
-    <tbody>
+    <tbody *ngIf= "vehicles | async; else empty">
         <tr *ngFor="let vehicle of vehicles | async">
             <td>{{ vehicle.brand }}</td>
             <td>{{ vehicle.model }}</td>
@@ -23,5 +19,10 @@
             <td><button (click)="deleteVehicle(vehicle.id)" class="btn btn-danger">Delete</button></td>
         </tr>
     </tbody>
+    <ng-template #empty>
+            <tbody>
+                    <td colspan="5" class="text-center">There aren't Vehicles registered yet.</td>
+            </tbody>
+    </ng-template>
   </table>
 
